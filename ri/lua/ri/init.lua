@@ -13,7 +13,6 @@ if not first_run then
     end
   end
 end
--- }}}
 
 function ri.on_enter(startup)
   _G._did_enter = true
@@ -24,8 +23,7 @@ local function aucmd(which, opts)
   opts.group = ri.augroup
   return vim.api.nvim_create_autocmd(which, opts)
 end
-
-
+-- }}}
 -- packages {{{
 local gh = function(x) return 'https://github.com/' .. x end
 local cb = function(x) return 'https://codeberg.org/' .. x end
@@ -34,6 +32,10 @@ vim.pack.add {
   gh 'nvim-mini/mini.nvim';
   gh 'lewis6991/gitsigns.nvim';
   gh 'nvim-treesitter/nvim-treesitter';
+
+  gh 'nvim-lua/plenary.nvim';  -- for neogit
+  gh 'sindrets/diffview.nvim';
+  gh 'NeogitOrg/neogit';
 }
 
 local rtp_add = function(x) vim.o.rtp = vim.o.rtp ..','.. x end
